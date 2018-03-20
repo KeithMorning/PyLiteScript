@@ -2,7 +2,6 @@ import socket
 from shutil import copyfile
 import argparse
 
-LOCAL_HOSTS = '/etc/hosts'
 
 def getIPbyHostName(hostName):
     try:
@@ -31,11 +30,10 @@ def updateIP(hostNames = None):
     input.close()
 
     output = open(LOCAL_HOSTS, 'w')
-    #新建一个
+    #更新指定host
     if hostNames != None:
         for name in hostNames:
             updatehostnameip(name,output)
-        return
 
     #更新之前的
     for line in lines:
